@@ -1,0 +1,282 @@
+@import './base.scss';
+
+// Header
+header {
+    padding: 64px 36px 52px;
+
+    .logo {
+        max-height: 35px;
+    }
+
+    @include mobile {
+        padding: 24px 0;
+        text-align: center;
+
+        .logo {
+            max-height: 19px;
+        }
+    }
+}
+
+// Banner
+#banner {
+    aspect-ratio: 1280/449;
+    position: relative;
+    background-image: url('../images/banner.png');
+    background-position-y: -120px;
+    background-position-x: -200px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: var(--primary-color);
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 50%;
+        background-color: var(--primary-color);
+        opacity: 0.8;
+        clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    @include mobile {
+        background-position: center;
+        background-position-y: 30%;
+
+        &::after {
+            display: none;
+        }
+    }
+}
+
+// Introduce
+#introduce {
+    a.view-btn {
+        border: 0;
+        background-color: var(--secondary-color);
+        color: var(--white-color);
+        padding: 10px 20px;
+        font-size: 2.4rem;
+        font-weight: 400;
+        display: block;
+        margin: 44px auto;
+        text-decoration: none;
+        width: fit-content;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.85;
+        }
+    }
+}
+
+// Advantage
+#advantage {
+    padding-bottom: 31px;
+}
+
+.advantages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 82px;
+
+    .advantages-item {
+        width: calc(50% - 41px);
+
+        h3 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-bottom: 17px;
+        }
+
+    }
+
+    .advantages-item + .advantages-item:nth-child(even) {
+        position: relative;
+        
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -41px;
+            height: 100%;
+            width: 1px;
+            background-color: var(--text-primary-color);
+        }
+    }
+
+    .text-link {
+        color: var(--text-secondary-color);
+        text-decoration: none;
+    }
+
+    @include mobile {
+        gap: 46px;
+
+        .advantages-item + .advantages-item:nth-child(even) {
+            &::after {
+                top: -23px;
+                left: 0px;
+                height: 1px;
+                width: 100%;
+            }
+        }
+
+        .advantages-item {
+            width: 100%;
+            position: relative;
+        }
+
+        .advantages-item:not(:first-child) {
+            &::after {
+                content: "";
+                position: absolute;
+                top: -23px;
+                left: 0px;
+                height: 1px;
+                width: 100%;
+                background-color: var(--text-primary-color);
+            }
+        }
+    }
+}
+
+// Loans 
+#loans {
+    padding: 31px 0;
+    
+    .loans-heading {
+        padding: 20px;
+        text-align: center;
+        color: var(--white-color);
+        font-weight: 400;
+        background-color: var(--primary-color);
+    }
+
+    .loans-description {
+        padding: 30px 64px;
+        background-color: var(--bg-primary-color);
+    }
+
+    @include mobile {
+
+        .loans-heading {
+            padding: 20px 22px;
+        }
+
+        .loans-description {
+            padding: 16px 10px;
+        }
+    }
+}
+
+// Testimonials
+#testimonials {
+    padding: 30px 70px 0;
+
+    @include mobile {
+        padding: 32px 56px 0;
+    }
+}
+
+.testimonials {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 80px;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .testimonial {
+        text-align: center;
+        font-style: italic;
+
+        &-avatar {
+            img {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+
+                @include mobile {
+                    max-width: 180px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+        }
+
+        &-quote {
+            background-image: url('../images/quote.png');
+            background-repeat: no-repeat;
+            background-position: top left;
+            margin-top: 12px;
+        }
+
+        &-author {
+            margin-top: 24px;
+            color: var(--primary-color);
+            line-height: 3.1rem;
+        }
+    }
+}
+
+// Footer 
+footer {
+    padding: 37px;
+    border-top: 1px solid var(--primary-color);
+
+    @include mobile {
+        padding: 26px 18px;
+    }
+
+    .socials {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 28px;
+
+        .social {
+            
+            img {
+                width: 28px;
+                height: auto;
+                object-fit: cover;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.85;
+                }
+            }
+        }
+    }
+
+    p {
+        font-size: 11px;
+        color: var(--text-primary-color);
+
+        a {
+            color: var(--text-primary-color);
+
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+    }
+
+    .legal {
+        margin-top: 26px;
+        font-size: 12px;
+
+        span + span {
+            margin-left: 12px;
+            padding-left: 12px;
+            border-left: 1px solid var(--black-color);
+        }
+    }
+}

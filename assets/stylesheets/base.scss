@@ -1,0 +1,77 @@
+// Initial variables
+:root {
+    --primary-color: #00945f;
+    --secondary-color: #e97300;
+    --text-primary-color: #888888;
+    --text-secondary-color: #759b24;
+    --bg-primary-color: #ebf7f5;
+    --white-color: #ffffff;
+    --black-color: #000000;
+}
+
+// Mixin
+$mobile-width: 768px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+//Base style
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    line-height: 1;
+}
+
+section {
+    h2 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        position: relative;
+        text-align: center;
+        margin-bottom: 46px;
+        font-weight: 400;
+        
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            width: 73px;
+            height: 2px;
+            background-color: var(--primary-color);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -18px;
+        }
+    }
+
+    p {
+        color: var(--text-primary-color);
+        line-height: 3.1rem;
+    }
+}
+
+.content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 38px 100px;
+
+    @include mobile {
+        padding: 40px 18px 70px;
+    }
+}
+
